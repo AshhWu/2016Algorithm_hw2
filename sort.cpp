@@ -1,5 +1,3 @@
-#include <iostream>
-#include <stdio.h>
 #include <string>
 #include <algorithm>
 #include <msgpack.hpp>
@@ -31,14 +29,37 @@ int main()
     result.get().convert(&num_tests);
     
     vector<int> numbers;
+    // for loop
     msgpack::sbuffer sbuf; 
-    for(int i=0;i<num_tests;i++)
-    {
-        msgpack::unpack(result,buf,fileLength,off);
-        result.get().convert(&numbers);
-        sort(numbers.begin(),numbers.end());
-        msgpack::pack(&sbuf,numbers);
-    }
+    msgpack::unpack(result,buf,fileLength,off);
+    result.get().convert(&numbers);
+    sort(numbers.begin(),numbers.end());
+    msgpack::pack(&sbuf,numbers);
+    
+    msgpack::sbuffer sbuf; 
+    msgpack::unpack(result,buf,fileLength,off);
+    result.get().convert(&numbers);
+    sort(numbers.begin(),numbers.end());
+    msgpack::pack(&sbuf,numbers);
+
+    msgpack::sbuffer sbuf; 
+    msgpack::unpack(result,buf,fileLength,off);
+    result.get().convert(&numbers);
+    sort(numbers.begin(),numbers.end());
+    msgpack::pack(&sbuf,numbers);
+
+    msgpack::sbuffer sbuf; 
+    msgpack::unpack(result,buf,fileLength,off);
+    result.get().convert(&numbers);
+    sort(numbers.begin(),numbers.end());
+    msgpack::pack(&sbuf,numbers);
+
+    msgpack::sbuffer sbuf; 
+    msgpack::unpack(result,buf,fileLength,off);
+    result.get().convert(&numbers);
+    sort(numbers.begin(),numbers.end());
+    msgpack::pack(&sbuf,numbers);
+
     
     assert(off == fileLength);
     
